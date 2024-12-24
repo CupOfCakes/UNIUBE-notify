@@ -13,8 +13,8 @@ ferias = False
 
 # abre e loga no ava
 navegador.get("https://ava.uniube.br/login/")
-navegador.find_element('xpath', '//*[@id="usuarioLogin"]').send_keys("5165775")
-navegador.find_element('xpath', '//*[@id="senhaView"]').send_keys("%N4tsuki")
+navegador.find_element('xpath', '//*[@id="usuarioLogin"]').send_keys("SEU RA")
+navegador.find_element('xpath', '//*[@id="senhaView"]').send_keys("SUA SENHA")
 navegador.find_element('xpath', '//*[@id="loginPage"]/div[3]/form/div[3]/div[1]/button').click()
 try:
     navegador.find_element('xpath', '//*[@id="Botoes"]/a[2]').click()
