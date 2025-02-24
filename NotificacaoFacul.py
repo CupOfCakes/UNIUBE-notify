@@ -2,14 +2,24 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from winotify import Notification
+import time
 
-servico = Service(ChromeDriverManager().install())
+options = Options()
+options.add_argument("--headless")  # Modo headless
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("start-maximized")
+options.add_argument("disable-infobars")
+options.add_argument("--disable-blink-features=AutomationControlled")
+options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                     "Chrome/91.0.4472.124 Safari/537.36")
 
-navegador = webdriver.Chrome(service=servico)
-
-ferias = False
+# Inicializa o navegador
+service = Service(ChromeDriverManager().install())
+navegador = webdriver.Chrome(service=service, options=options)
 
 # abre e loga no ava
 navegador.get("https://ava.uniube.br/login/")
@@ -20,6 +30,8 @@ try:
     navegador.find_element('xpath', '//*[@id="Botoes"]/a[2]').click()
 except:
     pass
+
+time.sleep(10)
 
 # pega o valor da mensalidade a pagar e data limite
 try:
@@ -52,9 +64,9 @@ SaeFinalizado = int(navegador.find_element(By.XPATH, '//*[@id="info_sae"]/div[2]
 sae = SaeComplementar + SaeFinalizado + SaeFBParcial
 
 # pega os arquivos e questões não visualizados
-if not ferias:
+try:
     arquivos = int(navegador.find_element(By.XPATH, '//*[@id="info_arquivos"]/div[2]/span[1]').text)
-else:
+except:
     arquivos = 0
 
 QuestD = int(navegador.find_element(By.XPATH, '//*[@id="info_acqa"]/div[2]/span[1]').text)
@@ -66,15 +78,19 @@ try:
     aula1 = navegador.find_element(By.XPATH, '//*[@id="info_aulas_hoje"]/div[2]/div[2]/div[1]/h2').text
     sala1 = navegador.find_element(By.XPATH, '//*[@id="info_aulas_hoje"]/div[2]/div[2]/div[2]/div[1]/span').text
 
-    navegador.find_element('xpath', '//*[@id="prox_aula"]/i').click()
-
-    aula2 = navegador.find_element(By.XPATH, '//*[@id="info_aulas_hoje"]/div[2]/div[3]/div[1]/h2').text
-    sala2 = navegador.find_element(By.XPATH, '//*[@id="info_aulas_hoje"]/div[2]/div[3]/div[2]/div[1]/span').text
-
-    NAul = Notification(app_id="UNIUBE", title="Aulas hoje", msg=f"1 horario: {aula1}\n"
-                                                                 f"{sala1}\n"
-                                                                 f"2 horario: {aula2}\n"
-                                                                 f"{sala2}\n")
+    try:
+        navegador.find_element('xpath', '//*[@id="prox_aula"]/i').click()
+    
+        aula2 = navegador.find_element(By.XPATH, '//*[@id="info_aulas_hoje"]/div[2]/div[3]/div[1]/h2').text
+        sala2 = navegador.find_element(By.XPATH, '//*[@id="info_aulas_hoje"]/div[2]/div[3]/div[2]/div[1]/span').text
+    
+        NAul = Notification(app_id="UNIUBE", title="Aulas hoje", msg=f"1 horario: {aula1}\n"
+                                                                     f"{sala1}\n"
+                                                                     f"2 horario: {aula2}\n"
+                                                                     f"{sala2}\n")
+    except:
+        NAul = Notification(app_id="UNIUBE", title="Aulas hoje", msg=f"1 horario: {aula1}\n"
+                                                                     f"{sala1}\n")
 except:
     NAul = Notification(app_id="UNIUBE", title="Aulas hoje", msg="Sem aulas hoje")
 
