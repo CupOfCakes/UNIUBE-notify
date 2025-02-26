@@ -110,7 +110,15 @@ NAul.add_actions(label="ir ao site", launch="https://ava.uniube.br/login/")
 
 # mostra os pop ups
 NMens.show()
+time.sleep(1)
+
 NComu.show()
+time.sleep(1)
+
 NSae.show()
+time.sleep(1)
+
 NNew.show()
+time.sleep(1)
+
 NAul.show()
