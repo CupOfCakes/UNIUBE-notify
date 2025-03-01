@@ -1,4 +1,5 @@
-# Description
+# UNIUBE-notify
+
 This software in Python automates tasks related to the UNIUBE portal. It works as follows:
 
 Login Automation: Logs you into your UNIUBE account using your credentials in a secure way.
@@ -7,14 +8,13 @@ Web Scraping: Performs scraping on the portal to collect specific information, s
 
 Notifications: Uses winotify to alert the user about:
 
-Classes of the day.
-New messages received.
-Alerts about financial issues.
-New files and online questions released.
-communications.
+- Classes of the day.
+- New messages received.
+- Alerts about financial issues.
+- New files and online questions released.
+- communications.
 
 This software makes life easier for UNIUBE students
-here's how to set it up in Portuguese and English
 
 # 📌 Step-by-step configuration
 
