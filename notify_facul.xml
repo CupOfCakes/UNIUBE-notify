@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+	<RegistrationInfo>
+		<Description>Runs the Python notification script for UNIUBE twice a day.</Description>
+	</RegistrationInfo>
+	<Principals>
+        	<Principal id="Author">
+            		<LogonType>InteractiveToken</LogonType>
+            		<RunLevel>LeastPrivilege</RunLevel>
+        	</Principal>
+    	</Principals>
+	<Triggers>
+  		<CalendarTrigger>
+    			<StartBoundary>enter the start day and the time the program will run</StartBoundary>
+    			<Enabled>true</Enabled>
+    			<ScheduleByDay>
+      				<DaysInterval>1</DaysInterval>
+    			</ScheduleByDay>
+  		</CalendarTrigger>
+
+		<CalendarTrigger>
+    			<StartBoundary>enter the start day and the time the program will run for the 2nd time</StartBoundary>
+    			<Enabled>true</Enabled>
+    			<ScheduleByDay>
+      				<DaysInterval>1</DaysInterval>
+    			</ScheduleByDay>
+  		</CalendarTrigger>
+	</Triggers>
+	<Settings>
+        	<AllowStartOnDemand>true</AllowStartOnDemand>
+        	<DontStopIfGoingOnBatteries>true</DontStopIfGoingOnBatteries>
+        	<StartWhenAvailable>true</StartWhenAvailable>
+        	<MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    	</Settings>
+	<Actions>
+    		<Exec>
+      			<Command>add automatic notification.bat path </Command>	
+    		</Exec>
+	</Actions>
+</Task>
