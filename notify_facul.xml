@@ -28,8 +28,9 @@
 	</Triggers>
 	<Settings>
         	<AllowStartOnDemand>true</AllowStartOnDemand>
-        	<DontStopIfGoingOnBatteries>true</DontStopIfGoingOnBatteries>
+        	<!-- <DontStopIfGoingOnBatteries>true</DontStopIfGoingOnBatteries> --> <!-- use if you're going to use it on a notebook --> 
         	<StartWhenAvailable>true</StartWhenAvailable>
+		<ExecutionTimeLimit>P0D</ExecutionTimeLimit>
         	<MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
     	</Settings>
 	<Actions>
