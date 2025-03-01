@@ -16,8 +16,8 @@ Novos arquivos e questões onlines lançados.
 Comunicados.
 
 Esse software serve para facilitar a vida dos estudante da UNIUBE
-
-Description in English:
+segue como configurar em português e em ingles
+# Description in English:
 This software in Python automates tasks related to the UNIUBE portal. It works as follows:
 
 Login Automation: Logs you into your UNIUBE account using your credentials in a secure way.
@@ -33,11 +33,10 @@ New files and online questions released.
 communications.
 
 This software makes life easier for UNIUBE students
-
-Translated with DeepL.com (free version)
+here's how to set it up in Portuguese and English
 
 -------------------------------------------------------------------------------------------------
-📌 Configuração Passo a Passo
+# 📌 Configuração Passo a Passo
 
 1️⃣ Configuração do Arquivo Python (.pyw)
 
@@ -111,7 +110,8 @@ Selecione o arquivo notificacao_task.xml e clique em Abrir.
 Verifique as configurações e clique em OK.
 
 
-📌 Step-by-step configuration
+
+# 📌 Step-by-step configuration
 
 1️⃣ Python file configuration (.pyw)
 
