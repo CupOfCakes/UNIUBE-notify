@@ -16,6 +16,15 @@ Notifications: Uses winotify to alert the user about:
 
 This software makes life easier for UNIUBE students
 
+# 📦 Libraries Used and Installation Commands
+- Selenium
+  - pip install selenium
+- WebDriver Manager
+  - pip install webdriver-manager
+- Winotify
+  -  pip install winotify
+- Time
+
 # 📌 Step-by-step configuration
 
 1️⃣ Python file configuration (.pyw)
