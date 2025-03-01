@@ -5,8 +5,8 @@
 	</RegistrationInfo>
 	<Principals>
         	<Principal id="Author">
-            		<LogonType>InteractiveToken</LogonType>
-            		<RunLevel>LeastPrivilege</RunLevel>
+			<LogonType>S4U</LogonType> 
+        		<RunLevel>HighestAvailable</RunLevel> 
         	</Principal>
     	</Principals>
 	<Triggers>
