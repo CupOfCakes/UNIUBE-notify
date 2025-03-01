@@ -31,8 +31,6 @@ try:
 except:
     pass
 
-time.sleep(10)
-
 # pega o valor da mensalidade a pagar e data limite
 try:
     mensalidade = navegador.find_element(By.XPATH, '//*[@id="info_financeiro"]/div[2]/div/span[2]/span').text
