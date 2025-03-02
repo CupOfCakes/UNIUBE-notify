@@ -26,10 +26,24 @@ navegador.get("https://ava.uniube.br/login/")
 navegador.find_element('xpath', '//*[@id="usuarioLogin"]').send_keys("SEU RA")
 navegador.find_element('xpath', '//*[@id="senhaView"]').send_keys("SUA SENHA")
 navegador.find_element('xpath', '//*[@id="loginPage"]/div[3]/form/div[3]/div[1]/button').click()
+
 try:
-    navegador.find_element('xpath', '//*[@id="Botoes"]/a[2]').click()
+    navegador.find_element('xpath', '//*[@id="DIV_ANDAMENTO"]/div/div/div/div[2]/div[2]/button/span').click()
 except:
     pass
+
+while True:
+    try:
+        navegador.find_element('xpath', '//*[@id="Botoes"]/a[2]').click()
+    except:
+        break
+
+while True:
+    try:
+        time.sleep(4)
+        navegador.find_element('xpath', '//*[@id="acessar"]/button').click()
+    except:
+        break
 
 # pega o valor da mensalidade a pagar e data limite
 try:
