@@ -137,7 +137,7 @@ NAul.show()
 
 # roda um som
 mixer.init()
-mixer.music.load(r"C:\Users\heito\PycharmProjects\facul\HK notify.mp3")
+mixer.music.load(r"HK notify.mp3") #se o arquivo de audio não estiver na mesma pasta deste arquivo, coloque o caminho do audio
 mixer.music.play()
 
 while mixer.music.get_busy():
