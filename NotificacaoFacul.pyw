@@ -1,12 +1,13 @@
-# faz o selenium funcionar e abrir o google
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from winotify import Notification
+from pygame import mixer
 import time
 
+# configura o navegador
 options = Options()
 options.add_argument("--headless")  # Modo headless
 options.add_argument("--no-sandbox")
@@ -106,8 +107,7 @@ try:
 except:
     NAul = Notification(app_id="UNIUBE", title="Aulas hoje", msg="Sem aulas hoje")
 
-# faz um pop up
-
+# faz os pop ups
 NMens.add_actions(label="ir ao site", launch="https://ava.uniube.br/login/")
 NComu = Notification(app_id="UNIUBE", title="Comunicados", msg=f"Novos comunicados: {comunicacoes}")
 NComu.add_actions(label="ir ao site", launch="https://ava.uniube.br/login/")
@@ -134,3 +134,11 @@ NNew.show()
 time.sleep(1)
 
 NAul.show()
+
+# roda um som
+mixer.init()
+mixer.music.load(r"C:\Users\heito\PycharmProjects\facul\HK notify.mp3")
+mixer.music.play()
+
+while mixer.music.get_busy():
+    pass
